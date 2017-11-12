@@ -41,19 +41,18 @@ void Graph::printGraph() {
 int main(int argc, char *argv[]) {
   const int verticeAmount = 4;
 
-  Node node0 = {0};
-  Node node1 = {1};
-  Node node2 = {2};
-  Node node3 = {3};
-
-  Node nodes[verticeAmount] = {node0, node1, node2, node3};
+  Node nodes[verticeAmount];
+  for(int i = 0; i < verticeAmount; i++) {
+    Node node = {i};
+    nodes[i] = node;
+  }
 
   Graph graph(verticeAmount, nodes);
 
-  graph.addEdge(node0, node1);
-  graph.addEdge(node0, node2);
-  graph.addEdge(node1, node2);
-  graph.addEdge(node2, node3);
+  graph.addEdge(nodes[0], nodes[1]);
+  graph.addEdge(nodes[0], nodes[2]);
+  graph.addEdge(nodes[1], nodes[2]);
+  graph.addEdge(nodes[2], nodes[3]);
 
   printf("the graph is: \n");
   graph.printGraph();
